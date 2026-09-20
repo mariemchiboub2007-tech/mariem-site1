@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio de Mariem Chiboub">
+  <title>Mariem Chiboub | Content Creator</title>
+
+  <style>
+    :root {
+      --noir: #171717;
+      --rose: #e83e8c;
+      --rose-fonce: #c92f76;
+      --fond: #fff1f7;
+      --blanc: #fff;
+      --texte: #333;
+      --erreur: #a40020;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--texte);
+      background: var(--fond);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    #connexion {
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      background: var(--noir);
+    }
+
+    .login-box {
+      width: 100%;
+      max-width: 380px;
+      padding: 30px;
+      text-align: center;
+      border-radius: 15px;
+      background: var(--blanc);
+    }
+
+    h1,
+    h2,
+    strong {
+      color: var(--rose);
+    }
+
+    input,
+    button {
+      padding: 12px 16px;
+      border-radius: 25px;
+      font-size: 1rem;
+    }
+
+    input {
+      width: 100%;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin: 10px 5px;
+      color: var(--blanc);
+      border: 0;
+      background: var(--rose);
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover,
+    button:focus {
+      background: var(--rose-fonce);
+    }
+
+    .login-box button {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    #erreur,
+    .video-erreur {
+      color: var(--erreur);
+      font-weight: bold;
+    }
+
+    #site {
+      display: none;
+    }
+
+    header {
+      padding: 70px 20px;
+      color: var(--blanc);
+      text-align: center;
+      background: var(--noir);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+
+    nav {
+      padding: 16px;
+      text-align: center;
+      background: var(--blanc);
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 5px 12px;
+      color: var(--noir);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav a:hover,
+    nav a:focus,
+    a {
+      color: var(--rose);
+    }
+
+    main {
+      width: 90%;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    section {
+      margin: 30px 0;
+      padding: 30px;
+      border-radius: 15px;
+      background: var(--blanc);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, .08);
+    }
+
+    h2 {
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--rose);
+    }
+
+    .videos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+
+    video {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      background: var(--noir);
+    }
+
+    .video-erreur {
+      font-size: .9rem;
+    }
+
+    #contact {
+      color: var(--blanc);
+      text-align: center;
+      background: var(--noir);
+    }
+
+    #contact h2,
+    #message {
+      color: var(--rose);
+    }
+
+    #message {
+      min-height: 25px;
+      font-weight: bold;
+    }
+
+    .coeur {
+      position: fixed;
+      z-index: 1000;
+      bottom: 80px;
+      color: var(--rose);
+      font-size: 32px;
+      pointer-events: none;
+      animation: monter 1.5s ease-out forwards;
+    }
+
+    @keyframes monter {
+      from {
+        transform: translateY(0) scale(.5);
+        opacity: 1;
+      }
+
+      to {
+        transform: translateY(-220px) scale(1.5) rotate(30deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.3rem;
+      }
+
+      section {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="connexion">
+    <div class="login-box">
+      <h1>Mariem Chiboub</h1>
+      <p>Entrez le code d'accès</p>
+
+      <form id="formulaireConnexion">
+        <input
+          id="code"
+          type="password"
+          placeholder="Code d'accès"
+          required
+        >
+
+        <button type="submit">
+          Accéder au site
+        </button>
+      </form>
+
+      <p id="erreur"></p>
+    </div>
+  </div>
+
+  <div id="site">
+    <header>
+      <h1>Mariem Chiboub</h1>
+      <p>Content Creator &amp; Digital Marketing</p>
+    </header>
+
+    <nav>
+      <a href="#apropos">À propos</a>
+      <a href="#services">Services</a>
+      <a href="#videos">Vidéos</a>
+      <a href="#contact">Me contacter</a>
+    </nav>
+
+    <main>
+      <section id="apropos">
+        <h2>À propos de moi</h2>
+
+        <p>
+          Je suis <strong>Mariem Chiboub</strong>, créatrice de contenu
+          et étudiante en ingénierie informatique.
+        </p>
+
+        <p>
+          Mon compte TikTok compte plus de
+          <strong>4 000 abonnés</strong>, avec des vidéos atteignant
+          jusqu'à <strong>70 000 vues</strong>.
+        </p>
+      </section>
+
+      <section id="services">
+        <h2>Mes services</h2>
+
+        <ul>
+          <li>Vidéos publicitaires et promotionnelles</li>
+          <li>Photos et retouches</li>
+          <li>Montage vidéo</li>
+          <li>Contenus créatifs</li>
+          <li>Promotion de produits</li>
+        </ul>
+      </section>
+
+      <section id="videos">
+        <h2>Mes vidéos</h2>
+
+        <div class="videos">
+          <video controls preload="metadata" playsinline>
+            <source src="videos/vd.mp4" type="video/mp4">
+            Votre navigateur ne peut pas lire cette vidéo.
+          </video>
+
+          <video controls preload="metadata" playsinline>
+            <source src="videos/vd2.mp4" type="video/mp4">
+            Votre navigateur ne peut pas lire cette vidéo.
+          </video>
+
+          <video controls preload="metadata" playsinline>
+            <source src="videos/vd3.mp4" type="video/mp4">
+            Votre navigateur ne peut pas lire cette vidéo.
+          </video>
+
+          <video controls preload="metadata" playsinline>
+            <source src="videos/vd4.mp4" type="video/mp4">
+            Votre navigateur ne peut pas lire cette vidéo.
+          </video>
+
+          <video controls preload="metadata" playsinline>
+            <source src="videos/vd5.mp4" type="video/mp4">
+            Votre navigateur ne peut pas lire cette vidéo.
+          </video>
+
+          <video controls preload="metadata" playsinline>
+            <source src="videos/vd6.mp4" type="video/mp4">
+            Votre navigateur ne peut pas lire cette vidéo.
+          </video>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Me contacter</h2>
+
+        <p>
+          Téléphone :
+          <a href="tel:+21695711733">+216 95 711 733</a>
+        </p>
+
+        <p>
+          Email :
+          <a href="mailto:mariemchiboub2007@gmail.com">
+            mariemchiboub2007@gmail.com
+          </a>
+        </p>
+
+        <button type="button" data-message="Oui, avec plaisir !">
+          Oui, avec plaisir
+        </button>
+
+        <button type="button" data-message="Oui, contactez-moi !">
+          Oui, contactez-moi
+        </button>
+
+        <p id="message"></p>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      var codeAcces = "777";
+      var formulaire = document.getElementById("formulaireConnexion");
+      var code = document.getElementById("code");
+      var erreur = document.getElementById("erreur");
+      var connexion = document.getElementById("connexion");
+      var site = document.getElementById("site");
+      var message = document.getElementById("message");
+
+      formulaire.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        if (code.value === codeAcces) {
+          connexion.style.display = "none";
+          site.style.display = "block";
+        } else {
+          erreur.textContent = "Code incorrect.";
+          code.value = "";
+          code.focus();
+        }
+      });
+
+      var videos = document.querySelectorAll("video");
+
+      for (var i = 0; i < videos.length; i++) {
+        videos[i].addEventListener("error", function () {
+          var erreurVideo = document.createElement("p");
+
+          erreurVideo.className = "video-erreur";
+          erreurVideo.textContent =
+            "Vidéo indisponible. Copiez aussi le dossier videos.";
+
+          this.parentNode.insertBefore(erreurVideo, this.nextSibling);
+        });
+      }
+
+      var boutons = document.querySelectorAll("[data-message]");
+
+      for (var j = 0; j < boutons.length; j++) {
+        boutons[j].addEventListener("click", function () {
+          message.textContent = this.getAttribute("data-message");
+
+          for (var k = 0; k < 15; k++) {
+            var coeur = document.createElement("span");
+
+            coeur.className = "coeur";
+            coeur.textContent = "♥";
+            coeur.style.left = Math.random() * 100 + "vw";
+            coeur.style.animationDelay = Math.random() * .5 + "s";
+
+            document.body.appendChild(coeur);
+
+            setTimeout(function (element) {
+              return function () {
+                if (element.parentNode) {
+                  element.parentNode.removeChild(element);
+                }
+              };
+            }(coeur), 1500);
+          }
+        });
+      }
+    }());
+  </script>
+</body>
+</html>
